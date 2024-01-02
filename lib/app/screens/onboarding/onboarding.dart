@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon_x/app/components/helper/screen_size.dart';
 import 'package:moon_x/app/screens/onboarding/onboarding_view_model.dart';
 import 'package:moon_x/app/widgets/custom_continue_button.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,13 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   final _pageController = PageController();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    ScreenSize.init(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,14 +29,12 @@ class _OnBoardingState extends State<OnBoarding> {
       appBar: AppBar(),
       body: Stack(
         children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemBuilder: (context, index) {
-                return OnboardingViewModel().pages[index];
-              },
-              itemCount: OnboardingViewModel().pages.length,
-            ),
+          PageView.builder(
+            controller: _pageController,
+            itemBuilder: (context, index) {
+              return OnboardingViewModel().pages[index];
+            },
+            itemCount: OnboardingViewModel().pages.length,
           ),
           Positioned(
             bottom: 0,
@@ -46,6 +52,9 @@ class _OnBoardingState extends State<OnBoarding> {
                     dotWidth: 8,
                     jumpScale: 3,
                   ),
+                ),
+                SizedBox(
+                  height: ScreenSize.screenHeight * 0.04,
                 ),
                 ContinueButton(onPressed: () {
                   context
