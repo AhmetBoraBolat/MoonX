@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:moon_x/app/components/consturactor/const_image.dart';
 import 'package:moon_x/app/components/consturactor/const_text.dart';
+import 'package:moon_x/app/components/helper/screen_size.dart';
+import 'package:moon_x/app/widgets/custom_date_picker.dart';
 
-class SecondDashboardPage extends StatelessWidget {
+class SecondDashboardPage extends StatefulWidget {
   const SecondDashboardPage({super.key});
+
+  @override
+  State<SecondDashboardPage> createState() => _SecondDashboardPageState();
+}
+
+class _SecondDashboardPageState extends State<SecondDashboardPage> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    ScreenSize.init(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +29,22 @@ class SecondDashboardPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 25),
+              SizedBox(height: ScreenSize.screenHeight * 0.361),
+              ConstText.getDescriptionText(),
               Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ConstText.getDescriptionText(),
+                  SizedBox(height: ScreenSize.screenHeight * 0.02),
                   ConstText.dashboardBoldTxt('Enter Birth Date'),
-                  Container(),
+                  SizedBox(height: ScreenSize.screenHeight * 0.02),
+                  const DatePickerBox(),
+                  SizedBox(height: ScreenSize.screenHeight * 0.03),
                   ConstText.dashboardBoldTxt('Enter Birth Time'),
-                  const Text('Enter Birth Time'),
+                  SizedBox(height: ScreenSize.screenHeight * 0.02),
+                  const DatePickerBox(),
                 ],
               ),
             ],
