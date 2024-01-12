@@ -1,0 +1,116 @@
+enum ImageEnum {
+  onboardingfirstImage,
+  onboardingsecondImage,
+  onboardingthirdImage,
+  homeBackgroundImage,
+  homeMoonImage,
+  homeHoroscopeImage,
+  homeCategoryBusiness,
+  homeCategoryFood,
+  homeCategoryRelations,
+  homeMoonRise,
+  homeMoonSet,
+  homeSunRise,
+  homeSunSet,
+  meditationSmalImage,
+  meditationImage,
+  meditationSmalWomenImage,
+  meditationWomenImage,
+  meditationBlueMusicImage,
+  meditationGreenMusicImage,
+  meditationPurpleImage,
+  meditationRedImage,
+  settingsHelpImage,
+  settingsPremiumBannerImage,
+  settingsPremiumIconImage,
+  settingsPrivacyImage,
+  settingsRateImage,
+  settingsRestoreImage,
+  settingsTermsImage,
+  premiumInApp1,
+  premiumInApp2,
+  premiumInApp3,
+  premiumBlur,
+  premiumCheckBoxSelected,
+  premiumCheckBoxUnselected,
+  premiumCheckMostPopular,
+}
+
+const Map<ImageEnum, String> imagePaths = {
+  ImageEnum.onboardingfirstImage:
+      '/Users/bora/Desktop/moon_x/assets/onboarding/img_background_first.png',
+  ImageEnum.onboardingsecondImage:
+      '/Users/bora/Desktop/moon_x/assets/onboarding/img_background_second.png',
+  ImageEnum.onboardingthirdImage:
+      '/Users/bora/Desktop/moon_x/assets/onboarding/img_background_third.png',
+  ImageEnum.homeBackgroundImage:
+      '/Users/bora/Desktop/moon_x/assets/home/img_home_background.png',
+  ImageEnum.homeMoonImage:
+      '/Users/bora/Desktop/moon_x/assets/home/img_home_moon.png',
+  ImageEnum.homeHoroscopeImage:
+      '/Users/bora/Desktop/moon_x/assets/home/img_home_horoscopebanner.png',
+  ImageEnum.homeCategoryBusiness:
+      '/Users/bora/Desktop/moon_x/assets/home/category/img_business.png',
+  ImageEnum.homeCategoryFood:
+      '/Users/bora/Desktop/moon_x/assets/home/category/img_food.png',
+  ImageEnum.homeCategoryRelations:
+      '/Users/bora/Desktop/moon_x/assets/home/category/img_relations.png',
+  ImageEnum.homeMoonRise:
+      '/Users/bora/Desktop/moon_x/assets/home/weather/moonrise.png',
+  ImageEnum.homeMoonSet:
+      '/Users/bora/Desktop/moon_x/assets/home/weather/moonset.png',
+  ImageEnum.homeSunRise:
+      '/Users/bora/Desktop/moon_x/assets/home/weather/sunrise.png',
+  ImageEnum.homeSunSet:
+      '/Users/bora/Desktop/moon_x/assets/home/weather/sunset.png',
+  ImageEnum.meditationSmalImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/image_meditation_small.png',
+  ImageEnum.meditationImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_meditation.png',
+  ImageEnum.meditationSmalWomenImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_meditation_women_small.png',
+  ImageEnum.meditationWomenImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_meditation_women.png',
+  ImageEnum.meditationBlueMusicImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_blue_music1.png',
+  ImageEnum.meditationGreenMusicImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_green_music4.png',
+  ImageEnum.meditationPurpleImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_purple_music2.png',
+  ImageEnum.meditationRedImage:
+      '/Users/bora/Desktop/moon_x/assets/meditation/img/img_red_music3.png',
+  ImageEnum.settingsHelpImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_help.png',
+  ImageEnum.settingsPremiumBannerImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_premium_banner.png',
+  ImageEnum.settingsPremiumIconImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_premium_icon.png',
+  ImageEnum.settingsPrivacyImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_privacy.png',
+  ImageEnum.settingsRateImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_rate.png',
+  ImageEnum.settingsRestoreImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_restore.png',
+  ImageEnum.settingsTermsImage:
+      '/Users/bora/Desktop/moon_x/assets/settings/img_terms.png',
+  ImageEnum.premiumInApp1:
+      '/Users/bora/Desktop/moon_x/assets/premium/img_inapp1.png',
+  ImageEnum.premiumInApp2:
+      '/Users/bora/Desktop/moon_x/assets/premium/img_inapp2.png',
+  ImageEnum.premiumInApp3:
+      '/Users/bora/Desktop/moon_x/assets/premium/img_inapp3.png',
+  ImageEnum.premiumBlur:
+      '/Users/bora/Desktop/moon_x/assets/premium/Ellipse_blur.png',
+  ImageEnum.premiumCheckBoxSelected:
+      '/Users/bora/Desktop/moon_x/assets/premium/btn_checkbox_selected.png',
+  ImageEnum.premiumCheckBoxUnselected:
+      '/Users/bora/Desktop/moon_x/assets/premium/btn_checkbox_unselected.png',
+  ImageEnum.premiumCheckMostPopular:
+      '/Users/bora/Desktop/moon_x/assets/premium/img_inapp_mostpopular.png',
+};
+
+extension ImageEnumExtension on ImageEnum {
+  String get imagePath {
+    return imagePaths[this] ?? '';
+  }
+}
