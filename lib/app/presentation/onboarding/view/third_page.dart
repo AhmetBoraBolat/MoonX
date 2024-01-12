@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:moon_x/app/core/consturactor/const_image.dart';
+import 'package:moon_x/app/core/consturactor/const_text.dart';
+import 'package:moon_x/app/core/helper/screen_size.dart';
+import 'package:moon_x/app/presentation/onboarding/widget/location_permission_box.dart';
+
+class ThirdOnboardingPage extends StatefulWidget {
+  const ThirdOnboardingPage({super.key});
+
+  @override
+  State<ThirdOnboardingPage> createState() => _ThirdOnboardingPageState();
+}
+
+class _ThirdOnboardingPageState extends State<ThirdOnboardingPage> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    ScreenSize.init(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            ImageEnum.onboardingthirdImage.imagePath,
+            fit: BoxFit.cover,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: ScreenSize.screenHeight * 0.361),
+              ConstText.dashboardBoldTxt('Lorem Ipsum', null),
+              SizedBox(height: ScreenSize.screenHeight * 0.03),
+              ConstText.getDescriptionText(),
+              SizedBox(height: ScreenSize.screenHeight * 0.05),
+              ConstText.dashboardBoldTxt('Enter Your Place Of Birth', null),
+              SizedBox(height: ScreenSize.screenHeight * 0.03),
+              const LocationPermissionBox(),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
