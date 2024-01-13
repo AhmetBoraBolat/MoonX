@@ -29,6 +29,7 @@ class ChatGptSerivce {
         var msgData = response.data;
         if (msgData.containsKey('choices')) {
           var content = msgData['choices'][0]['message']['content'];
+          //inspect(content);
           return ChatGptModel(content);
         }
       }

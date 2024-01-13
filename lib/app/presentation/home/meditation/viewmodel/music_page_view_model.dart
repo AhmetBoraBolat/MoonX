@@ -13,12 +13,13 @@ class MusicViewModel extends ChangeNotifier {
   Duration get duration => _duration;
   Duration get position => _position;
 
-  late StreamSubscription<PlayerState> playerStateChangedSubscription;
-  late StreamSubscription<Duration> durationChangedSubscription;
-  late StreamSubscription<Duration> positionChangedSubscription;
+  StreamSubscription<PlayerState>? playerStateChangedSubscription;
+  StreamSubscription<Duration>? durationChangedSubscription;
+  StreamSubscription<Duration>? positionChangedSubscription;
 
   void init() {
-    player.onPlayerStateChanged.listen((state) {
+    playerStateChangedSubscription =
+        player.onPlayerStateChanged.listen((state) {
       _isPlaying = state == PlayerState.playing;
       notifyListeners();
     });
@@ -49,10 +50,11 @@ class MusicViewModel extends ChangeNotifier {
   }
 
   void stop() {
-    player.dispose();
-    playerStateChangedSubscription.cancel();
-    durationChangedSubscription.cancel();
-    positionChangedSubscription.cancel();
+    player.stop();
+    // player.dispose();
+    playerStateChangedSubscription?.cancel();
+    durationChangedSubscription?.cancel();
+    positionChangedSubscription?.cancel();
   }
 
   String formatPosition() {

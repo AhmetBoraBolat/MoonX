@@ -4,14 +4,9 @@ import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/main/viewmodel/AI/main_page_ai_view_model.dart';
 import 'package:provider/provider.dart';
 
-class CustomCategoryBox extends StatefulWidget {
+class CustomCategoryBox extends StatelessWidget {
   const CustomCategoryBox({Key? key}) : super(key: key);
 
-  @override
-  State<CustomCategoryBox> createState() => _CustomCategoryBoxState();
-}
-
-class _CustomCategoryBoxState extends State<CustomCategoryBox> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,18 +15,18 @@ class _CustomCategoryBoxState extends State<CustomCategoryBox> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _buildSegmentedControl(0, 'Business', const Color(0xFF8E53D8),
-              ImageEnum.homeCategoryBusiness.imagePath, 'Business'),
+              ImageEnum.homeCategoryBusiness.imagePath, 'Business', context),
           _buildSegmentedControl(1, 'Food', const Color(0xFFF07A22),
-              ImageEnum.homeCategoryFood.imagePath, 'Food'),
+              ImageEnum.homeCategoryFood.imagePath, 'Food', context),
           _buildSegmentedControl(2, 'Relations', const Color(0xFF535FD8),
-              ImageEnum.homeCategoryRelations.imagePath, 'Relations'),
+              ImageEnum.homeCategoryRelations.imagePath, 'Relations', context),
         ],
       ),
     );
   }
 
-  Widget _buildSegmentedControl(
-      int index, String label, Color color, String image, String category) {
+  Widget _buildSegmentedControl(int index, String label, Color color,
+      String image, String category, BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(ScreenSize.screenWidth * 0.015),
       child: GestureDetector(

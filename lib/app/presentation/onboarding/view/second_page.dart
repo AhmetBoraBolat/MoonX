@@ -5,19 +5,8 @@ import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/onboarding/widget/custom_date_picker.dart';
 import 'package:moon_x/app/presentation/onboarding/widget/custom_time_picker.dart';
 
-class SecondOnboardingPage extends StatefulWidget {
+class SecondOnboardingPage extends StatelessWidget {
   const SecondOnboardingPage({super.key});
-
-  @override
-  State<SecondOnboardingPage> createState() => _SecondOnboardingPageState();
-}
-
-class _SecondOnboardingPageState extends State<SecondOnboardingPage> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ScreenSize.init(context);
-  }
 
   @override
   Widget build(BuildContext context) {

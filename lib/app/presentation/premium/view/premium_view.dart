@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moon_x/app/core/consturactor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
+import 'package:moon_x/app/presentation/home/main/viewmodel/AI/main_page_ai_view_model.dart';
 import 'package:moon_x/app/presentation/home/settings/webview/webview.dart';
 import 'package:moon_x/app/presentation/premium/widget/custom_blur_efect.dart';
 import 'package:moon_x/app/presentation/premium/widget/custom_premium_checkbox.dart';
 import 'package:moon_x/app/presentation/premium/widget/custom_premium_image.dart';
+import 'package:provider/provider.dart';
 
 class PremiumPage extends StatefulWidget {
   const PremiumPage({super.key});
@@ -155,7 +157,9 @@ class _PremiumPageState extends State<PremiumPage> {
       right: ScreenSize.screenWidth * 0.15,
       left: ScreenSize.screenWidth * 0.15,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
+          await context.read<MainPageAIViewModel>().buyPremium();
+          // ignore: use_build_context_synchronously
           Navigator.pop(context);
         },
         style: ButtonStyle(

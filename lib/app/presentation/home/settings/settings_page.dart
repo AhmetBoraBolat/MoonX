@@ -5,14 +5,9 @@ import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/settings/widget/custom_premium_banner.dart';
 import 'package:moon_x/app/presentation/home/settings/widget/custom_settings_list.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

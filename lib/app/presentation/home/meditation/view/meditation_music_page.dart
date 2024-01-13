@@ -19,8 +19,8 @@ class _MusicPageState extends State<MusicPage> {
   }
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     context.read<MusicViewModel>().init();
   }
 
@@ -144,14 +144,15 @@ class _MusicPageState extends State<MusicPage> {
 
   Positioned _backButton(BuildContext context) {
     return Positioned(
-      left: ScreenSize.screenWidth * 0.04,
-      top: ScreenSize.screenHeight * 0.03,
+      left: ScreenSize.screenWidth * 0.01,
+      top: ScreenSize.screenHeight * 0.05,
       child: IconButton(
         onPressed: () {
           Navigator.pop(
             context,
           );
         },
+        iconSize: ScreenSize.screenHeight * 0.045,
         icon: const Icon(
           MoonXMusicIcons.btn_dropdown_arrow,
           color: Colors.white,

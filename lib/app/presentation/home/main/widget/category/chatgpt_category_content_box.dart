@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon_x/app/core/consturactor/const_image.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/main/viewmodel/AI/main_page_ai_view_model.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,9 @@ class _ChatGptCategoryContentContainerState
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: ScreenSize.screenWidth * 0.04),
       child: Container(
-        padding: EdgeInsets.all(ScreenSize.screenWidth * 0.02),
+        padding: !viewModel.isLoadingCategoryContent
+            ? EdgeInsets.all(ScreenSize.screenWidth * 0.02)
+            : EdgeInsets.all(ScreenSize.screenWidth * 0.3),
         decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -50,26 +53,41 @@ class _ChatGptCategoryContentContainerState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                viewModel.getCategoryImage(),
+                getCategoryImage(),
                 scale: 0.8,
               ),
               SizedBox(
                 height: ScreenSize.screenHeight * 0.04,
               ),
-              Text(
-                viewModel.gptCategoryContent.isNotEmpty
-                    ? viewModel.gptCategoryContent
-                    : "Content not available",
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13,
-                ),
-              )
+              !viewModel.isLoadingCategoryContent
+                  ? Text(
+                      viewModel.gptCategoryContent.isNotEmpty
+                          ? viewModel.gptCategoryContent
+                          : "Content not available",
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    )
+                  : const CircularProgressIndicator(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  String getCategoryImage() {
+    switch (context.watch<MainPageAIViewModel>().gptCategory) {
+      case 'Business':
+        return ImageEnum.homeCategoryBusiness.imagePath;
+      case 'Food':
+        return ImageEnum.homeCategoryFood.imagePath;
+      case 'Relations':
+        return ImageEnum.homeCategoryRelations.imagePath;
+      default:
+        return ImageEnum.homeCategoryBusiness.imagePath;
+    }
   }
 }

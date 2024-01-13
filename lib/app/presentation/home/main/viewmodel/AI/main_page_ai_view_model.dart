@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:moon_x/app/core/consturactor/const_image.dart';
 import 'package:moon_x/app/core/consturactor/sharedpref_key.dart';
 import 'package:moon_x/app/core/helper/shared_preferences_helper.dart';
 import 'package:moon_x/app/core/helper/zodiac_helper.dart';
@@ -16,6 +15,8 @@ class MainPageAIViewModel extends ChangeNotifier {
   String gptContent = '';
   String gptCategory = '';
   String gptCategoryContent = '';
+  int premiumCounter = 3;
+  bool isLoadingCategoryContent = false;
 
   Future<void> getZodiac() async {
     await initSharedPref();
@@ -28,6 +29,8 @@ class MainPageAIViewModel extends ChangeNotifier {
   Future<void> chatGptRequest() async {
     var gptModel = await service.getDefaultHoroscopePrediction(zodiac);
     gptContent = gptModel?.content ?? '';
+    await SharedPreferencesHelper.saveStringData(
+        SharedPrefKeys.gptContent.name, gptContent);
     notifyListeners();
   }
 
@@ -49,26 +52,56 @@ class MainPageAIViewModel extends ChangeNotifier {
 
   Future<void> chatGptCategoryRequest() async {
     ChatGptModel? gptModel;
+    var resultPremium = await SharedPreferencesHelper.getIntData(
+      SharedPrefKeys.premiumCounter.name,
+    );
+    if (resultPremium == null) {
+      await SharedPreferencesHelper.saveIntData(
+        SharedPrefKeys.premiumCounter.name,
+        3,
+      );
+      resultPremium = 3;
+    }
+    premiumCounter = resultPremium;
 
-    if (gptCategory != '') {
-      if (gptCategoryContent != '' && zodiac != '') {
+    if (premiumCounter > 0) {
+      if (gptCategory != '') {
+        if (gptCategoryContent != '' && zodiac != '') {
+          gptModel =
+              await service.getCategoryHoroscopePrediction(zodiac, gptCategory);
+          if (gptModel != null) {
+            gptCategoryContent = gptModel.content;
+          }
+        }
+      } else {
         gptModel =
-            await service.getCategoryHoroscopePrediction(zodiac, gptCategory);
+            await service.getCategoryHoroscopePrediction(zodiac, 'Business');
         if (gptModel != null) {
           gptCategoryContent = gptModel.content;
-
-          notifyListeners();
         }
       }
-    } else {
-      gptModel =
-          await service.getCategoryHoroscopePrediction(zodiac, 'Business');
-      if (gptModel != null) {
-        gptCategoryContent = gptModel.content;
-
-        notifyListeners();
+      premiumCounter--;
+    } else if (premiumCounter == 0) {
+      gptCategoryContent = 'For more horoscope readings, purchase premium.';
+    } else if (premiumCounter == -1) {
+      if (gptCategory != '') {
+        if (gptCategoryContent != '' && zodiac != '') {
+          gptModel =
+              await service.getCategoryHoroscopePrediction(zodiac, gptCategory);
+          if (gptModel != null) {
+            gptCategoryContent = gptModel.content;
+          }
+        }
+      } else {
+        gptModel =
+            await service.getCategoryHoroscopePrediction(zodiac, 'Business');
+        if (gptModel != null) {
+          gptCategoryContent = gptModel.content;
+        }
       }
     }
+    await SharedPreferencesHelper.saveIntData(
+        SharedPrefKeys.premiumCounter.name, premiumCounter);
     notifyListeners();
   }
 
@@ -88,21 +121,22 @@ class MainPageAIViewModel extends ChangeNotifier {
   Future<void> changeCategory(String category) async {
     if (category != '') {
       gptCategory = category;
-      await chatGptCategoryRequest();
-      notifyListeners();
+      if (!isLoadingCategoryContent) {
+        isLoadingCategoryContent = true;
+        notifyListeners();
+        await chatGptCategoryRequest();
+        isLoadingCategoryContent = false;
+        notifyListeners();
+      }
     }
   }
 
-  String getCategoryImage() {
-    switch (gptCategory) {
-      case 'Business':
-        return ImageEnum.homeCategoryBusiness.imagePath;
-      case 'Food':
-        return ImageEnum.homeCategoryFood.imagePath;
-      case 'Relations':
-        return ImageEnum.homeCategoryRelations.imagePath;
-      default:
-        return ImageEnum.homeCategoryBusiness.imagePath;
-    }
+  Future<void> buyPremium() async {
+    premiumCounter = -1;
+    await SharedPreferencesHelper.saveIntData(
+      SharedPrefKeys.premiumCounter.name,
+      premiumCounter,
+    );
+    notifyListeners();
   }
 }

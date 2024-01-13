@@ -6,5 +6,6 @@ enum SharedPrefKeys {
   longitude,
   userCity,
   enteredBefore,
-  gptContent
+  gptContent,
+  premiumCounter,
 }

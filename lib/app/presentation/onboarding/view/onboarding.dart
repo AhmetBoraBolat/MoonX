@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moon_x/app/core/consturactor/sharedpref_key.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/core/helper/shared_preferences_helper.dart';
-import 'package:moon_x/app/presentation/home/view/home_page.dart';
+import 'package:moon_x/app/presentation/home/home_page.dart';
 import 'package:moon_x/app/presentation/onboarding/viewmodel/onboarding_view_model.dart';
 import 'package:moon_x/app/presentation/onboarding/widget/custom_continue_button.dart';
 import 'package:provider/provider.dart';
@@ -26,11 +26,11 @@ class _OnBoardingState extends State<OnBoarding> {
 
   void checkLogin() async {
     var check = await context.read<OnboardingViewModel>().initControl();
-    check
-        // ignore: use_build_context_synchronously
-        ? Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const HomePage()))
-        : print('first');
+    if (check) {
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (localContext) => const HomePage()));
+    }
   }
 
   @override

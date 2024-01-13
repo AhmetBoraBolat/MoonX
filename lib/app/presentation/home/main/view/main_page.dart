@@ -9,14 +9,9 @@ import 'package:moon_x/app/presentation/home/main/widget/custom_main_card_design
 import 'package:moon_x/app/presentation/home/main/widget/weather/custom_calendar_button.dart';
 import 'package:moon_x/app/presentation/home/main/widget/weather/custom_weather_main_column.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,19 +4,8 @@ import 'package:moon_x/app/core/consturactor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/meditation/widget/custom_container_design.dart';
 
-class MeditationFirstPage extends StatefulWidget {
+class MeditationFirstPage extends StatelessWidget {
   const MeditationFirstPage({Key? key}) : super(key: key);
-
-  @override
-  State<MeditationFirstPage> createState() => _MeditationFirstPageState();
-}
-
-class _MeditationFirstPageState extends State<MeditationFirstPage> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ScreenSize.init(context);
-  }
 
   @override
   Widget build(BuildContext context) {

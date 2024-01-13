@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
-import 'package:moon_x/app/presentation/home/meditation/pages/meditation_second_page.dart';
-import 'package:moon_x/app/presentation/home/meditation/pages/meditation_third_page.dart';
 import 'package:moon_x/app/presentation/home/meditation/view/meditation_first_page.dart';
+import 'package:moon_x/app/presentation/home/meditation/view/meditation_second_page.dart';
+import 'package:moon_x/app/presentation/home/meditation/view/meditation_third_page.dart';
 
 class MeditationPage extends StatefulWidget {
   const MeditationPage({

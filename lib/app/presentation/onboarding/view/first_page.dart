@@ -3,19 +3,8 @@ import 'package:moon_x/app/core/consturactor/const_image.dart';
 import 'package:moon_x/app/core/consturactor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 
-class FirstOnboardingPage extends StatefulWidget {
+class FirstOnboardingPage extends StatelessWidget {
   const FirstOnboardingPage({super.key});
-
-  @override
-  State<FirstOnboardingPage> createState() => _FirstOnboardingPageState();
-}
-
-class _FirstOnboardingPageState extends State<FirstOnboardingPage> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ScreenSize.init(context);
-  }
 
   @override
   Widget build(BuildContext context) {

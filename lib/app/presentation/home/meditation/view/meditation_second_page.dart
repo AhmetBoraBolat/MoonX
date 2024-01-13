@@ -4,14 +4,9 @@ import 'package:moon_x/app/core/consturactor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/meditation/widget/custom_container_design.dart';
 
-class MeditationSecondPage extends StatefulWidget {
+class MeditationSecondPage extends StatelessWidget {
   const MeditationSecondPage({super.key});
 
-  @override
-  State<MeditationSecondPage> createState() => _MeditationSecondPageState();
-}
-
-class _MeditationSecondPageState extends State<MeditationSecondPage> {
   @override
   Widget build(BuildContext context) {
     return Column(

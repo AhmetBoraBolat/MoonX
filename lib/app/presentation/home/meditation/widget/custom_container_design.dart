@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/meditation/view/meditation_music_page.dart';
 
-class CustomMeditationContainer extends StatefulWidget {
+class CustomMeditationContainer extends StatelessWidget {
   final String img;
   final String? musicBigImg;
 
@@ -16,18 +16,6 @@ class CustomMeditationContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomMeditationContainer> createState() =>
-      _CustomMeditationContainerState();
-}
-
-class _CustomMeditationContainerState extends State<CustomMeditationContainer> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ScreenSize.init(context);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -35,7 +23,7 @@ class _CustomMeditationContainerState extends State<CustomMeditationContainer> {
             context,
             MaterialPageRoute(
                 builder: (context) => MusicPage(
-                      img: widget.musicBigImg ?? '',
+                      img: musicBigImg ?? '',
                     )));
         if (kDebugMode) {
           print('Gesturededector');
@@ -46,7 +34,7 @@ class _CustomMeditationContainerState extends State<CustomMeditationContainer> {
         child: Stack(
           children: [
             Image.asset(
-              widget.img,
+              img,
               height: ScreenSize.screenWidth * 0.45,
               width: ScreenSize.screenWidth * 0.45,
               fit: BoxFit.cover,

@@ -4,19 +4,8 @@ import 'package:moon_x/app/core/consturactor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/onboarding/widget/location_permission_box.dart';
 
-class ThirdOnboardingPage extends StatefulWidget {
+class ThirdOnboardingPage extends StatelessWidget {
   const ThirdOnboardingPage({super.key});
-
-  @override
-  State<ThirdOnboardingPage> createState() => _ThirdOnboardingPageState();
-}
-
-class _ThirdOnboardingPageState extends State<ThirdOnboardingPage> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ScreenSize.init(context);
-  }
 
   @override
   Widget build(BuildContext context) {
