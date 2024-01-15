@@ -115,10 +115,10 @@ class _ChatGptCategoryContentContainerState
                       ? Text(
                           viewModel.gptCategoryContent,
                           textAlign: TextAlign.start,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         )
                       : const Center(child: CircularProgressIndicator())
                   : const Center(child: CircularProgressIndicator()),

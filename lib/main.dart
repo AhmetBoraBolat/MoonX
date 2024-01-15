@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               backgroundColor: Colors.transparent,
             ),
+            scaffoldBackgroundColor: Colors.transparent,
             textTheme: const TextTheme(
                 bodyLarge: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.white))),

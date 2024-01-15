@@ -50,11 +50,13 @@ class CustomMeditationContainer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text(
-                          '\nLorem ipsum\nLorem ipsum  2:34',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 10),
-                        ),
+                        Text('\nLorem ipsum\nLorem ipsum  2:34',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                )),
                         Image.asset(
                           'assets/meditation/icon/btn_play.png',
                           width: ScreenSize.screenWidth * 0.1,

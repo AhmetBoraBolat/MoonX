@@ -26,8 +26,8 @@ class MainPage extends StatelessWidget {
                 Image.asset(
                   ImageEnum.homeBackgroundImage.imagePath,
                   height: viewModel.isLoadingCategoryContent
-                      ? ScreenSize.screenHeight * 1.5
-                      : ScreenSize.screenHeight * 1.8,
+                      ? ScreenSize.screenHeight * 1.51
+                      : ScreenSize.screenHeight * 1.9,
                   fit: BoxFit.cover,
                 ),
                 const CustomCalendarButton(),
@@ -43,8 +43,8 @@ class MainPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: ScreenSize.screenWidth * 0.06,
                       ),
-                      child:
-                          ConstText.dashboardBoldTxt('What is for Today?', 15),
+                      child: ConstText.dashboardBoldTxt(
+                          'What is for Today?', context),
                     ),
                     const MainCard(),
                     Padding(
@@ -59,7 +59,7 @@ class MainPage extends StatelessWidget {
                         horizontal: ScreenSize.screenWidth * 0.05,
                         vertical: ScreenSize.screenHeight * 0.01,
                       ),
-                      child: ConstText.dashboardBoldTxt('Lunar Tips', 16),
+                      child: ConstText.dashboardBoldTxt('Lunar Tips', context),
                     ),
                     const CustomCategoryBox(),
                     SizedBox(

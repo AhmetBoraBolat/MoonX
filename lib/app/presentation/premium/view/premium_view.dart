@@ -31,7 +31,7 @@ class _PremiumPageState extends State<PremiumPage> {
         title: ConstText.dashboardBoldTxt(
             'Lorem Ipssum\n'
             '     Dolar Sit',
-            26),
+            context),
         actions: [
           IconButton(
               onPressed: () {
@@ -176,11 +176,11 @@ class _PremiumPageState extends State<PremiumPage> {
             ),
           ),
         ),
-        child: Text(
-          'Purchase for \$$text',
-          style: const TextStyle(
-              fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
+        child: Text('Purchase for \$$text',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                )),
       ),
     );
   }
@@ -192,10 +192,10 @@ class _PremiumPageState extends State<PremiumPage> {
         SizedBox(
           height: ScreenSize.screenHeight * 0.02,
         ),
-        const Text(
+        Text(
           'Why do I need to pay?',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 15),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         SizedBox(
           height: ScreenSize.screenHeight * 0.02,
@@ -204,12 +204,12 @@ class _PremiumPageState extends State<PremiumPage> {
           padding: EdgeInsets.only(
             left: ScreenSize.screenWidth * 0.035,
           ),
-          child: const Text(
+          child: Text(
             'Experience a virtual presence like never before, crafted just for you.\n'
             'despite the computational demands, we offer this innovative\n'
             'solution at an affordable price.\n',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],

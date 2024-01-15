@@ -44,7 +44,7 @@ class _MusicPageState extends State<MusicPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ConstText.dashboardBoldTxt('Lorem ipsum', 20),
+                  ConstText.dashboardBoldTxt('Lorem ipsum', context),
                   SizedBox(height: ScreenSize.screenHeight * 0.04),
                   Padding(
                     padding: EdgeInsets.symmetric(

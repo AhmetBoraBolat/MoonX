@@ -20,7 +20,7 @@ class _SettingsPageState extends State<SettingsPage> {
     var vm = context.watch<MainPageAIViewModel>();
     return Scaffold(
       appBar: AppBar(
-        title: ConstText.dashboardBoldTxt('Settings', 20),
+        title: ConstText.dashboardBoldTxt('Settings', context),
       ),
       backgroundColor: const Color(0xFF040406),
       body: SafeArea(

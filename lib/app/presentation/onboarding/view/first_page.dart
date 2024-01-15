@@ -20,12 +20,12 @@ class FirstOnboardingPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: ScreenSize.screenHeight * 0.5),
-              const Text(
-                'Welcome',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
+              Text('Welcome',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      )),
               SizedBox(height: ScreenSize.screenHeight * 0.03),
-              ConstText.getDescriptionText(),
+              ConstText.getDescriptionText(context),
               SizedBox(
                 height: ScreenSize.screenHeight * 0.15,
               ),

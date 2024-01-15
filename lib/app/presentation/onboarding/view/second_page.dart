@@ -22,8 +22,8 @@ class SecondOnboardingPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(height: ScreenSize.screenHeight * 0.34),
-              ConstText.getDescriptionText(),
-              _secondPageColumn(),
+              ConstText.getDescriptionText(context),
+              _secondPageColumn(context),
             ],
           )
         ],
@@ -31,16 +31,16 @@ class SecondOnboardingPage extends StatelessWidget {
     );
   }
 
-  Column _secondPageColumn() {
+  Column _secondPageColumn(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ConstText.dashboardBoldTxt('Enter Birth Date', null),
+        ConstText.dashboardBoldTxt('Enter Birth Date', context),
         SizedBox(height: ScreenSize.screenHeight * 0.02),
         const DatePickerBox(),
         SizedBox(height: ScreenSize.screenHeight * 0.03),
-        ConstText.dashboardBoldTxt('Enter Birth Time', null),
+        ConstText.dashboardBoldTxt('Enter Birth Time', context),
         SizedBox(height: ScreenSize.screenHeight * 0.02),
         const TimePickerBox(),
       ],

@@ -38,7 +38,7 @@ class _CustomMainWeatherColumnState extends State<CustomMainWeatherColumn> {
         SizedBox(
           height: ScreenSize.screenHeight * 0.07,
         ),
-        ConstText.dashboardBoldTxt('Good Morning !', null),
+        ConstText.dashboardBoldTxt('Good Morning !', context),
         SizedBox(
           height: ScreenSize.screenHeight * 0.01,
         ),
@@ -56,7 +56,7 @@ class _CustomMainWeatherColumnState extends State<CustomMainWeatherColumn> {
         ),
         ConstText.dashboardBoldTxt(
             '${context.watch<MainPageWeatherViewModel>().resultdateTime} 11.49',
-            null),
+            context),
         SizedBox(
           height: ScreenSize.screenHeight * 0.01,
         ),

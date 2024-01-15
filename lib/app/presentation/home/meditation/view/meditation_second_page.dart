@@ -16,7 +16,7 @@ class MeditationSecondPage extends StatelessWidget {
           padding: EdgeInsets.only(
               left: ScreenSize.screenWidth * 0.08,
               bottom: ScreenSize.screenHeight * 0.02),
-          child: ConstText.dashboardBoldTxt('Yoga', 18),
+          child: ConstText.dashboardBoldTxt('Yoga', context),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -38,7 +38,7 @@ class SettingsListElements extends StatelessWidget {
               SizedBox(
                 width: ScreenSize.screenWidth * 0.02,
               ),
-              ConstText.dashboardBoldTxt(text, null),
+              ConstText.dashboardBoldTxt(text, context),
             ],
           ),
         ),

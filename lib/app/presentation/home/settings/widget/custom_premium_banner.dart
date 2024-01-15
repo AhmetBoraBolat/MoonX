@@ -20,24 +20,24 @@ class CustomPremiumBanner extends StatelessWidget {
       child: Stack(
         children: [
           _backGroundBanner(),
-          _frontBanner(),
-          _textBanner(),
+          _frontBanner(context),
+          _textBanner(context),
         ],
       ),
     );
   }
 
-  Padding _textBanner() {
+  Padding _textBanner(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          top: ScreenSize.screenHeight * 0.14,
+          top: ScreenSize.screenHeight * 0.115,
           left: ScreenSize.screenWidth * 0.11),
       child: ConstText.dashboardBoldTxt(
-          'Unlock package in order to access the features', 12),
+          'Unlock package in order to access the features', context),
     );
   }
 
-  Padding _frontBanner() {
+  Padding _frontBanner(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         right: ScreenSize.screenWidth * 0.2,
@@ -51,13 +51,13 @@ class CustomPremiumBanner extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         child: Padding(
-          padding: EdgeInsets.all(ScreenSize.screenWidth * 0.01),
+          padding: EdgeInsets.all(ScreenSize.screenWidth * 0.025),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  ConstText.dashboardBoldTxt('Get Premium', 20),
+                  ConstText.dashboardBoldTxt('Get Premium', context),
                   SizedBox(
                     width: ScreenSize.screenWidth * 0.04,
                   ),
@@ -67,7 +67,7 @@ class CustomPremiumBanner extends StatelessWidget {
                   ),
                 ],
               ),
-              ConstText.dashboardBoldTxt('to Access All Contents!', 20),
+              ConstText.dashboardBoldTxt('to Access All Contents!', context),
             ],
           ),
         ),
@@ -77,7 +77,7 @@ class CustomPremiumBanner extends StatelessWidget {
 
   Container _backGroundBanner() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: ScreenSize.screenWidth * 0.06),
+      padding: EdgeInsets.symmetric(horizontal: ScreenSize.screenWidth * 0.035),
       child: Image.asset(
         ImageEnum.settingsPremiumBannerImage.imagePath,
       ),

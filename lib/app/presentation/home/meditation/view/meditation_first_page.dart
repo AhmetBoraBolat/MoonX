@@ -16,7 +16,7 @@ class MeditationFirstPage extends StatelessWidget {
           padding: EdgeInsets.only(
               left: ScreenSize.screenWidth * 0.08,
               bottom: ScreenSize.screenHeight * 0.02),
-          child: ConstText.dashboardBoldTxt('Feng Shui', 18),
+          child: ConstText.dashboardBoldTxt('Feng Shui', context),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +37,7 @@ class MeditationFirstPage extends StatelessWidget {
               top: ScreenSize.screenHeight * 0.04,
               left: ScreenSize.screenWidth * 0.08,
               bottom: ScreenSize.screenHeight * 0.02),
-          child: ConstText.dashboardBoldTxt('XYZ', 18),
+          child: ConstText.dashboardBoldTxt('XYZ', context),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
