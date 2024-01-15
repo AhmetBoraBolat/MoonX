@@ -90,9 +90,8 @@ class _MeditationPageState extends State<MeditationPage> {
       padding: EdgeInsets.symmetric(horizontal: ScreenSize.screenWidth * 0.04),
       constraints: const BoxConstraints(maxHeight: 33.0),
       decoration: BoxDecoration(
-        border: const Border.symmetric(
-          vertical: BorderSide(color: Colors.white, width: 0.1),
-        ),
+        border: const Border.fromBorderSide(
+            BorderSide(color: Colors.white, width: 0.1)),
         borderRadius: BorderRadius.circular(6.0),
         color: _selectedIndex == index
             ? const Color(0xFF535FD8)

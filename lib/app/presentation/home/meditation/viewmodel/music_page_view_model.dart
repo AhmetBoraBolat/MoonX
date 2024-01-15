@@ -23,13 +23,13 @@ class MusicViewModel extends ChangeNotifier {
       _isPlaying = state == PlayerState.playing;
       notifyListeners();
     });
-
-    player.onDurationChanged.listen((newDuration) {
+    durationChangedSubscription =
+        player.onDurationChanged.listen((newDuration) {
       _duration = newDuration;
       notifyListeners();
     });
-
-    player.onPositionChanged.listen((newPosition) {
+    positionChangedSubscription =
+        player.onPositionChanged.listen((newPosition) {
       _position = newPosition;
       notifyListeners();
     });
@@ -55,6 +55,27 @@ class MusicViewModel extends ChangeNotifier {
     playerStateChangedSubscription?.cancel();
     durationChangedSubscription?.cancel();
     positionChangedSubscription?.cancel();
+  }
+
+  void restart() {
+    player.seek(Duration.zero);
+    player.resume();
+  }
+
+  void rewind() {
+    Duration newPosition = _position - const Duration(seconds: 10);
+    if (newPosition.isNegative) {
+      newPosition = Duration.zero;
+    }
+    player.seek(newPosition);
+  }
+
+  void fastForward() {
+    Duration newPosition = _position + const Duration(seconds: 10);
+    if (newPosition > _duration) {
+      newPosition = _duration;
+    }
+    player.seek(newPosition);
   }
 
   String formatPosition() {

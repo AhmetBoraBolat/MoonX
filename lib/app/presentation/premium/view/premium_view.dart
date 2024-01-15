@@ -26,6 +26,7 @@ class _PremiumPageState extends State<PremiumPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         title: ConstText.dashboardBoldTxt(
             'Lorem Ipssum\n'
@@ -45,7 +46,7 @@ class _PremiumPageState extends State<PremiumPage> {
           const PremiumBlurEfect(),
           const CustomPremiumImage(),
           Positioned(
-            top: ScreenSize.screenHeight * 0.36,
+            top: ScreenSize.screenHeight * 0.38,
             right: 0,
             left: 0,
             child: Column(
@@ -200,7 +201,9 @@ class _PremiumPageState extends State<PremiumPage> {
           height: ScreenSize.screenHeight * 0.02,
         ),
         Padding(
-          padding: EdgeInsets.only(left: ScreenSize.screenWidth * 0.035),
+          padding: EdgeInsets.only(
+            left: ScreenSize.screenWidth * 0.035,
+          ),
           child: const Text(
             'Experience a virtual presence like never before, crafted just for you.\n'
             'despite the computational demands, we offer this innovative\n'

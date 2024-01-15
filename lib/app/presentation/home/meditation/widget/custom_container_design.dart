@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/meditation/view/meditation_music_page.dart';
@@ -25,9 +24,6 @@ class CustomMeditationContainer extends StatelessWidget {
                 builder: (context) => MusicPage(
                       img: musicBigImg ?? '',
                     )));
-        if (kDebugMode) {
-          print('Gesturededector');
-        }
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
@@ -57,12 +53,11 @@ class CustomMeditationContainer extends StatelessWidget {
                         const Text(
                           '\nLorem ipsum\nLorem ipsum  2:34',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontWeight: FontWeight.bold, fontSize: 10),
                         ),
                         Image.asset(
-                          '/Users/bora/Desktop/moon_x/assets/meditation/icon/btn_play.png',
-                          width: 50,
+                          'assets/meditation/icon/btn_play.png',
+                          width: ScreenSize.screenWidth * 0.1,
                         ),
                       ],
                     )

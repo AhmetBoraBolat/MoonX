@@ -23,29 +23,29 @@ String getZodiacSign(DateTime selectedDate) {
 String getZodiacImagePath(String zodiacSign) {
   switch (zodiacSign) {
     case 'Capricorn':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/capricornius.png';
+      return 'assets/horoscope/capricornius.png';
     case 'Aquarius':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/aquarius.png';
+      return 'assets/horoscope/aquarius.png';
     case 'Pisces':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/pisces.png';
+      return 'assets/horoscope/pisces.png';
     case 'Aries':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/aries.png';
+      return 'assets/horoscope/aries.png';
     case 'Taurus':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/taurus.png';
+      return 'assets/horoscope/taurus.png';
     case 'Gemini':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/gemini.png';
+      return 'assets/horoscope/gemini.png';
     case 'Cancer':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/cancer.png';
+      return 'assets/horoscope/cancer.png';
     case 'Leo':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/leo.png';
+      return 'assets/horoscope/leo.png';
     case 'Virgo':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/virgo.png';
+      return 'assets/horoscope/virgo.png';
     case 'Libra':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/libra.png';
+      return 'assets/horoscope/libra.png';
     case 'Scorpio':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/scorpio.png';
+      return 'assets/horoscope/scorpio.png';
     case 'Sagittarius':
-      return '/Users/bora/Desktop/moon_x/assets/horoscope/sagittarius.png';
+      return 'assets/horoscope/sagittarius.png';
     default:
       return '';
   }

@@ -14,6 +14,7 @@ class MusicPage extends StatefulWidget {
 }
 
 class _MusicPageState extends State<MusicPage> {
+  bool like = false;
   String formatTime(int seconds) {
     return '${(Duration(seconds: seconds))}'.split('.')[0].padLeft(8, '0');
   }
@@ -94,7 +95,9 @@ class _MusicPageState extends State<MusicPage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.read<MusicViewModel>().restart();
+          },
           icon: const Icon(
             size: 20,
             MoonXMusicIcons.btn_refresh_playlist,
@@ -102,7 +105,9 @@ class _MusicPageState extends State<MusicPage> {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.read<MusicViewModel>().rewind();
+          },
           icon: const Icon(
             size: 15,
             MoonXMusicIcons.btn_back_playlist,
@@ -113,17 +118,19 @@ class _MusicPageState extends State<MusicPage> {
           onTap: () {
             context
                 .read<MusicViewModel>()
-                .togglePlayPause('/music/aksam_gunesi.mp3');
+                .togglePlayPause('music/aksam_gunesi.mp3');
           },
           child: SizedBox(
             child: Image.asset(
-              '/Users/bora/Desktop/moon_x/assets/meditation/icon/btn_play_playlist.png',
+              'assets/meditation/icon/btn_play_playlist.png',
               height: 50,
             ),
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.read<MusicViewModel>().fastForward();
+          },
           icon: const Icon(
             size: 15,
             MoonXMusicIcons.btn_next_playlist,
@@ -131,11 +138,15 @@ class _MusicPageState extends State<MusicPage> {
           ),
         ),
         IconButton(
-          onPressed: () {},
-          icon: const Icon(
+          onPressed: () {
+            setState(() {
+              like = !like;
+            });
+          },
+          icon: Icon(
             size: 15,
             MoonXMusicIcons.btn_fav_playlist,
-            color: Colors.white,
+            color: like ? Colors.red : Colors.white,
           ),
         ),
       ],

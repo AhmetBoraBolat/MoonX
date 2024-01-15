@@ -64,8 +64,8 @@ class _MusicControlWidgetState extends State<MusicControlWidget>
                           builder: (context, musicViewModel, child) {
                             return Image.asset(
                               musicViewModel.isPlaying
-                                  ? '/Users/bora/Desktop/moon_x/assets/meditation/icon/btn_pause2-1.png'
-                                  : '/Users/bora/Desktop/moon_x/assets/meditation/icon/btn_pause2.png',
+                                  ? 'assets/meditation/icon/btn_pause2-1.png'
+                                  : 'assets/meditation/icon/btn_pause2.png',
                               width: ScreenSize.screenWidth * 0.11,
                             );
                           },
@@ -89,7 +89,7 @@ class _MusicControlWidgetState extends State<MusicControlWidget>
                           context.read<MusicViewModel>().stop();
                         },
                         child: Image.asset(
-                          '/Users/bora/Desktop/moon_x/assets/meditation/icon/btn_close.png',
+                          'assets/meditation/icon/btn_close.png',
                           width: ScreenSize.screenWidth * 0.11,
                         ),
                       ),

@@ -36,9 +36,7 @@ class WeatherService {
 
       if (response.statusCode == 200) {
         WeatherModel weatherData = WeatherModel.fromJson(response.data);
-        if (kDebugMode) {
-          print(weatherData);
-        }
+
         return weatherData;
       } else {
         throw Exception('Failed to load weather data');

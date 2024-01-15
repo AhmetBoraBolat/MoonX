@@ -30,17 +30,17 @@ class CustomPremiumBanner extends StatelessWidget {
   Padding _textBanner() {
     return Padding(
       padding: EdgeInsets.only(
-          top: ScreenSize.screenHeight * 0.12,
+          top: ScreenSize.screenHeight * 0.14,
           left: ScreenSize.screenWidth * 0.11),
       child: ConstText.dashboardBoldTxt(
-          'Unlock package in order to access the features', 13),
+          'Unlock package in order to access the features', 12),
     );
   }
 
   Padding _frontBanner() {
     return Padding(
       padding: EdgeInsets.only(
-        right: ScreenSize.screenWidth * 0.3,
+        right: ScreenSize.screenWidth * 0.2,
         top: ScreenSize.screenHeight * 0.03,
         left: ScreenSize.screenWidth * 0.1,
       ),
@@ -51,7 +51,7 @@ class CustomPremiumBanner extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         child: Padding(
-          padding: EdgeInsets.all(ScreenSize.screenWidth * 0.02),
+          padding: EdgeInsets.all(ScreenSize.screenWidth * 0.01),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,7 +59,7 @@ class CustomPremiumBanner extends StatelessWidget {
                 children: [
                   ConstText.dashboardBoldTxt('Get Premium', 20),
                   SizedBox(
-                    width: ScreenSize.screenWidth * 0.03,
+                    width: ScreenSize.screenWidth * 0.04,
                   ),
                   Image.asset(
                     ImageEnum.settingsPremiumIconImage.imagePath,

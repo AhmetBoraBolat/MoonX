@@ -73,6 +73,7 @@ class MainPageAIViewModel extends ChangeNotifier {
             gptCategoryContent = gptModel.content;
           }
         }
+        premiumCounter--;
       } else {
         gptModel =
             await service.getCategoryHoroscopePrediction(zodiac, 'Business');
@@ -80,7 +81,6 @@ class MainPageAIViewModel extends ChangeNotifier {
           gptCategoryContent = gptModel.content;
         }
       }
-      premiumCounter--;
     } else if (premiumCounter == 0) {
       gptCategoryContent = 'For more horoscope readings, purchase premium.';
     } else if (premiumCounter == -1) {
