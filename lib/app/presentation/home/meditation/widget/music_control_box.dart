@@ -58,7 +58,7 @@ class _MusicControlWidgetState extends State<MusicControlWidget>
                         onTap: () {
                           context
                               .read<MusicViewModel>()
-                              .togglePlayPause('/music/aksam_gunesi.mp3');
+                              .togglePlayPause('music/aksam_gunesi.mp3');
                         },
                         child: Consumer<MusicViewModel>(
                           builder: (context, musicViewModel, child) {

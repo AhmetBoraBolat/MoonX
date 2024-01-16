@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:moon_x/app/core/consturactor/sharedpref_key.dart';
+import 'package:moon_x/app/core/constructor/sharedpref_key.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/core/helper/shared_preferences_helper.dart';
 import 'package:moon_x/app/core/helper/zodiac_helper.dart';

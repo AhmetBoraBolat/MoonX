@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_x/app/core/consturactor/const_text.dart';
+import 'package:moon_x/app/core/constructor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/core/icon/moon_x_music_icons_icons.dart';
 import 'package:moon_x/app/presentation/home/meditation/viewmodel/music_page_view_model.dart';

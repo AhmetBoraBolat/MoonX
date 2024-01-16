@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_x/app/core/consturactor/const_text.dart';
+import 'package:moon_x/app/core/constructor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/home/main/viewmodel/AI/main_page_ai_view_model.dart';
 import 'package:moon_x/app/presentation/home/settings/webview/webview.dart';

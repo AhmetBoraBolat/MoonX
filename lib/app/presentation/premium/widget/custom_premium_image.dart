@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_x/app/core/consturactor/const_image.dart';
+import 'package:moon_x/app/core/constructor/const_image.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 
 class CustomPremiumImage extends StatelessWidget {

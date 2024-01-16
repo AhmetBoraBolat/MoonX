@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:moon_x/app/core/consturactor/sharedpref_key.dart';
+import 'package:moon_x/app/core/constructor/sharedpref_key.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/core/helper/shared_preferences_helper.dart';
 
@@ -28,32 +28,33 @@ class _LocationPermissionBoxState extends State<LocationPermissionBox> {
   }
 
   Future<void> _getUserLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    //LocationPermission permission;
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
     }
 
-    permission = await Geolocator.checkPermission();
+    var permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.deniedForever) {
+        return Future.error(
+            'Location permissions are permanently denied, cannot request permissions.');
+      }
       if (permission == LocationPermission.denied) {
         return Future.error('Location permissions are denied');
       }
     }
 
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, cannot request permissions.');
-    }
+    final Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.lowest,
+        forceAndroidLocationManager: true);
 
-    final Position position = await Geolocator.getCurrentPosition();
-    final List<Placemark> placemarks = await placemarkFromCoordinates(
-      position.latitude,
-      position.longitude,
-    );
+    List<Placemark> placemarks = await GeocodingPlatform.instance
+        .placemarkFromCoordinates(position.latitude, position.longitude,
+            localeIdentifier: "en");
+
     final userPlacemark = placemarks.first;
 
     final latitude = position.latitude;
@@ -66,6 +67,7 @@ class _LocationPermissionBoxState extends State<LocationPermissionBox> {
 
     setState(() {
       userCity = userPlacemark.locality ?? userPlacemark.administrativeArea;
+
       SharedPreferencesHelper.saveStringData(
           SharedPrefKeys.userCity.name.toString(), userCity!);
     });

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moon_x/app/core/consturactor/const_image.dart';
-import 'package:moon_x/app/core/consturactor/const_text.dart';
+import 'package:moon_x/app/core/constructor/const_image.dart';
+import 'package:moon_x/app/core/constructor/const_text.dart';
 import 'package:moon_x/app/core/helper/screen_size.dart';
 import 'package:moon_x/app/presentation/premium/view/premium_view.dart';
 
@@ -30,8 +30,8 @@ class CustomPremiumBanner extends StatelessWidget {
   Padding _textBanner(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          top: ScreenSize.screenHeight * 0.115,
-          left: ScreenSize.screenWidth * 0.11),
+          top: ScreenSize.screenHeight * 0.125,
+          left: ScreenSize.screenWidth * 0.07),
       child: ConstText.dashboardBoldTxt(
           'Unlock package in order to access the features', context),
     );
