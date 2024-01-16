@@ -2,8 +2,10 @@
 
 A new Flutter project.
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2024-01-16 at 09 39 30](https://github.com/AhmetBoraBolat/MoonX/assets/91913233/5fbb53c6-72f5-4dc5-a1b3-2a8d63cad34d=250x250)
 
+
+
+<img src="https://github.com/AhmetBoraBolat/MoonX/assets/91913233/5fbb53c6-72f5-4dc5-a1b3-2a8d63cad34d"  width="200" height="400"/>
 
 
 
