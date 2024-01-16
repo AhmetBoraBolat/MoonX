@@ -4,9 +4,11 @@ My project named MoonX takes your date of birth, retrieves your zodiac sign, and
 
 # libraries
 
--  provider
+
   <br>
 -  shared_preferences
+  <br>
+-  provider
   <br>
 -  smooth_page_indicator
   <br>
